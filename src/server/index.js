@@ -36,3 +36,22 @@ app.listen(8081, function() {
 app.get('/test', function(req, res) {
     res.send(mockAPIResponse)
 })
+
+
+// api call challenge
+const projectData = {};
+
+// Initialize all route with a callback function
+app.get('/all', getData);
+// Callback function to complete GET '/all'
+function getData(req, res) {
+    res.send(projectData);
+}
+
+
+// Post Route
+app.post('/add', addData);
+
+function addData(req, res) {
+    projectData.temperature = req.body.temperature
+}
